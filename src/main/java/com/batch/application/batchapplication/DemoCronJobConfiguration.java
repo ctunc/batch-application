@@ -1,5 +1,8 @@
 package com.batch.application.batchapplication;
 
+import com.batch.common.config.batchcommonconfig.CronJobConfig;
+import com.batch.common.config.batchcommonconfig.DbConfig;
+import com.batch.common.config.batchcommonconfig.TaskJobConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.batch.core.*;
@@ -10,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.interceptor.DefaultTransactionAttribute;
 import org.springframework.transaction.jta.JtaTransactionManager;
@@ -17,6 +21,7 @@ import org.springframework.transaction.jta.JtaTransactionManager;
 import javax.sql.DataSource;
 
 @Configuration
+@Import({DbConfig.class})
 public class DemoCronJobConfiguration {
 
     Logger logger = LoggerFactory.getLogger(this.getClass());
